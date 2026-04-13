@@ -1,0 +1,54 @@
+
+{% extends "inicio/encabezado.html" %}
+
+{% load static %}
+
+{% block titulo %} PRINCIPAL {% endblock %}
+
+{% block imagen %}
+  {%load static%}
+  {%static 'inicio/images/home.png'%}
+ {% endblock%} 
+
+{% block proyecto %} PRINCIPAL {% endblock %}
+{% block contenido %}
+<!-- Contenido Principal-->
+<div class="page-content">
+
+    <!-- Encabezado -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3>Alumnos
+                <small>Lista de Alumnos</small>
+            </h3>
+        </div>
+    </div>
+    <!-- /Encabezado -->
+
+    <!-- Tabla de alumnos -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Matrícula</th>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Turno</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">
+                    <img src="" alt="" class="img-media">
+                </td>
+                <td class="text-semibold">UTM241098TI</td>
+                <td class="muted">Jose Angel Chavez Vargas</td>
+                <td class="text-semibold">TIC</td>
+                <td class="text-semibold">Vespertino</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- fin Tabla de Alumnos-->
+{% endblock %}

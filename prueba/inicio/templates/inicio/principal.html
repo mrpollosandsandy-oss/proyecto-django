@@ -5,10 +5,7 @@
 
 {% block titulo %} PRINCIPAL {% endblock %}
 
-{% block imagen %}
-  {%load static%}
-  {%static 'inicio/images/home.png'%}
- {% endblock%} 
+{% block imagen %}{%static 'inicio/images/home.png'%}{% endblock%} 
 
 {% block proyecto %} PRINCIPAL {% endblock %}
 {% block contenido %}
@@ -37,15 +34,25 @@
             </tr>
         </thead>
         <tbody>
+        {% for alumno in alumnos %}
             <tr>
                 <td class="text-center">
-                    <img src="" alt="" class="img-media">
+                    {% if alumno.imagen %}
+                        <img src="{{ alumno.imagen.url }}" alt="Imagen de {{ alumno.nombre }}" class="img-media" style="max-width: 50px; height: auto;">
+                    {% else %}
+                        <span>Sin imagen</span>
+                    {% endif %}
                 </td>
-                <td class="text-semibold">UTM241098TI</td>
-                <td class="muted">Jose Angel Chavez Vargas</td>
-                <td class="text-semibold">TIC</td>
-                <td class="text-semibold">Vespertino</td>
+                <td class="text-semibold">{{ alumno.matricula }}</td>
+                <td class="muted">{{ alumno.nombre }}</td>
+                <td class="muted">{{ alumno.carrera }}</td>
+                <td class="muted">{{ alumno.turno }}</td>
             </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No hay alumnos registrados.</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 

@@ -67,14 +67,6 @@
 		}
 	}
 </style>
-<script>
-	$(document).ready(function(){
-		$('#mobile-menu-btn').on('click', function(e){
-			e.preventDefault();
-			$('#main-sidebar').toggleClass('show-mobile-sidebar');
-		});
-	});
-</script>
 </head>
 
 <body>
@@ -84,9 +76,9 @@
  	<div class="page-container">
 
 		<!-- Custom Navbar for Mobile -->
-		<div class="mobile-navbar" style="display:none; background:#333; color:#fff; padding:10px; text-align:right;">
+		<div class="mobile-navbar" style="display:none; background:#333; color:#fff; padding:10px; text-align:right; z-index:9999; position:relative;">
 			<span style="float:left; font-size:18px; line-height:30px; margin-left: 10px;">Menu</span>
-			<button id="mobile-menu-btn" type="button" style="background:#555; color:#fff; border:none; padding:8px 15px; cursor:pointer; font-size: 16px; border-radius: 4px;">
+			<button id="mobile-menu-btn" type="button" onclick="document.getElementById('main-sidebar').classList.toggle('show-mobile-sidebar')" style="background:#555; color:#fff; border:none; padding:8px 15px; cursor:pointer; font-size: 16px; border-radius: 4px;">
 				☰
 			</button>
 			<div style="clear:both;"></div>
